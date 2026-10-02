@@ -1,0 +1,50 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#eef3f4;color:#183b37}
+button,input{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+a{color:#247a70}
+.topo{display:flex;justify-content:space-between;align-items:center;padding:24px 5%;background:#fff;border-bottom:1px solid #dfe8e7}
+.topo h1{font-size:25px}.topo span{font-size:13px;color:#71817e}
+.status-sistema{font-size:13px;color:#52706b}.ponto{display:inline-block;width:9px;height:9px;background:#279553;border-radius:50%;margin-right:8px}
+.principal{min-height:calc(100vh - 90px);display:grid;grid-template-columns:1fr 430px;gap:60px;align-items:center;max-width:1180px;margin:auto;padding:55px 30px}
+.apresentacao{max-width:570px}.tag{font-size:11px;letter-spacing:1.4px;color:#247a70;font-weight:700}
+.apresentacao h2{font-size:42px;line-height:1.2;margin:22px 0;color:#183b37}.apresentacao h2 strong{color:#247a70}
+.apresentacao>p{color:#71817e;line-height:1.7;max-width:500px}
+.card-seguranca{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid #dfe8e7;border-radius:14px;padding:20px;margin:30px 0;box-shadow:0 10px 30px #183b3710}
+.icone-seguranca{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#e3f5e8;color:#279553;font-weight:bold}
+.card-seguranca p{font-size:13px;color:#71817e;margin-top:5px}
+.informacoes{display:flex;gap:35px}.informacoes div{display:flex;flex-direction:column;gap:5px}.informacoes strong{color:#247a70}.informacoes span{font-size:12px;color:#71817e}
+.login-area{width:100%}.login-card,.camera-caixa,.resultado-caixa{background:#fff;border:1px solid #dfe8e7;border-radius:20px;box-shadow:0 20px 55px #183b371a;text-align:center}
+.login-card{padding:38px}.login-topo{display:flex;align-items:center;gap:14px;text-align:left;margin-bottom:30px}.login-topo h3{font-size:20px}.login-topo p{font-size:13px;color:#71817e;margin-top:5px}
+.icone-login,.logo-icone{width:50px;height:50px;display:grid;place-items:center;border-radius:15px;background:#247a70;color:#fff;font-size:23px;flex-shrink:0}
+.campo{text-align:left;margin-bottom:18px}.campo label{display:block;margin-bottom:8px;font-size:13px;font-weight:600;color:#35514d}
+.campo input{width:100%;height:48px;padding:0 14px;border:1px solid #d5dfde;border-radius:10px;outline:none;background:#fafcfc;color:#183b37}
+.campo input:focus{border-color:#247a70;box-shadow:0 0 0 3px #247a701f}
+.botao-entrar,.botao,.resultado-caixa button{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:0;border-radius:10px;background:#247a70;color:#fff;padding:13px 20px;font-weight:600;text-decoration:none}
+.botao-entrar{width:100%;margin-top:5px}.botao:hover,.botao-entrar:hover,.resultado-caixa button:hover{background:#1d655d}
+.seta{margin-left:auto}.login-footer,.aviso-camera{font-size:11px;color:#899794;line-height:1.5;margin-top:22px}.mensagem{font-size:13px;margin:8px 0}.mensagem.sucesso{color:#279553}.mensagem.erro{color:#c0392b}
+.tela-sistema{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:35px;background:radial-gradient(circle at 80% 15%,#247a701f,transparent 28%),#eef3f4}
+.camera-caixa{width:100%;max-width:650px;padding:42px}.camera-caixa .pequeno{margin:0 auto 20px}.camera-caixa h1,.resultado-caixa h1{font-size:28px;margin-bottom:10px;color:#183b37}
+.descricao{max-width:470px;margin:0 auto 25px;font-size:14px;line-height:1.6;color:#71817e}
+.camera-area{width:100%;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:25px 0;border:2px dashed #b9d2ce;border-radius:16px;background:#f5f9f8;position:relative;overflow:hidden}
+.camera-icone{width:75px;height:75px;display:grid;place-items:center;margin-bottom:15px;border-radius:50%;background:#dcefed;font-size:30px}
+.camera-area p{font-size:13px;color:#657572}
+.video-area video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);display:block}
+.camera-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f9f8}
+.camera-placeholder[hidden]{display:none}
+.moldura-rosto{position:absolute;inset:15% 29%;border:2px solid #67b5a8;border-radius:48%;pointer-events:none}
+.acoes{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:14px 0}
+.secundario{background:#e7f1ef;color:#247a70}.secundario:hover{background:#d7e9e5}
+.status-text{font-size:13px;color:#52706b;margin:12px 0;min-height:20px}
+.aviso-camera{margin:18px 0}.camera-caixa>p:last-child{font-size:13px;margin-top:15px}
+.scanner{position:relative;width:280px;height:280px;display:grid;place-items:center;margin:30px auto;border:2px solid #247a70;border-radius:50%;background:#f4f8f7;overflow:hidden}
+.scanner-rosto{font-size:90px;opacity:.7}.linha-scanner{position:absolute;width:100%;height:2px;background:#247a70;top:0;animation:scanner 2s infinite ease-in-out}
+@keyframes scanner{to{transform:translateY(270px)}}
+.resultado-caixa{width:100%;max-width:600px;padding:42px}.sucesso{width:70px;height:70px;display:grid;place-items:center;margin:0 auto 20px;border-radius:50%;background:#e3f5e8;color:#279553;font-size:35px;font-weight:bold}.sucesso.falha{background:#fff0df;color:#b36b13}
+.perfil{display:flex;align-items:center;gap:25px;margin:28px 0;padding:22px;border:1px solid #e1e9e8;border-radius:15px;background:#f8faf9;text-align:left}.perfil[hidden]{display:none}
+.foto{width:95px;height:95px;flex-shrink:0}.foto img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.dados{flex:1}.dados p{margin-bottom:9px;font-size:13px;color:#657572}.dados strong{color:#304c48}.ativo{color:#269552;font-weight:600}
+.form-cadastro{margin-top:20px;text-align:left}.form-cadastro .botao-entrar{margin-bottom:18px}
+@media(max-width:850px){.principal{grid-template-columns:1fr;max-width:600px}.apresentacao{display:none}.login-area{max-width:430px;margin:auto}}
+@media(max-width:650px){.tela-sistema{padding:15px}.camera-caixa,.resultado-caixa{padding:28px 20px}.perfil{flex-direction:column;text-align:center}.dados{width:100%}.topo{padding:18px 5%}.informacoes{gap:15px}}
