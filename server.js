@@ -41,11 +41,12 @@ app.use((req, res, next) => {
 // Receber JSON com fotos em Base64
 app.use(express.json({ limit: "20mb" }));
 
-// Local do arquivo de dados
+// Local dos arquivos de dados
 const databaseDir = path.join(__dirname, "database");
 const databaseFile = path.join(databaseDir, "pessoas.json");
+const usuariosFile = path.join(databaseDir, "usuarios.json");
 
-// Criar a pasta e o arquivo se necessário
+// Criar a pasta e os arquivos se necessário
 if (!fs.existsSync(databaseDir)) {
     fs.mkdirSync(databaseDir, { recursive: true });
 }
@@ -54,30 +55,99 @@ if (!fs.existsSync(databaseFile)) {
     fs.writeFileSync(databaseFile, "[]", "utf8");
 }
 
+if (!fs.existsSync(usuariosFile)) {
+    fs.writeFileSync(
+        usuariosFile,
+        JSON.stringify([
+            {
+                usuario: "admin",
+                senha: "1234",
+                nome: "Administrador"
+            }
+        ], null, 2),
+        "utf8"
+    );
+}
+
+function lerArquivoJson(caminho, nome) {
+    const conteudo = fs.readFileSync(caminho, "utf8");
+    const dados = JSON.parse(conteudo);
+    if (!Array.isArray(dados)) {
+        throw new Error(`O arquivo ${nome} não contém uma lista válida.`);
+    }
+    return dados;
+}
+
+function escreverArquivoJson(caminho, dados) {
+    const temporario = caminho + ".tmp";
+    fs.writeFileSync(temporario, JSON.stringify(dados, null, 2), "utf8");
+    fs.renameSync(temporario, caminho);
+}
+
 // Ler os cadastros
 function lerPessoas() {
-    const conteudo = fs.readFileSync(databaseFile, "utf8");
-    const pessoas = JSON.parse(conteudo);
-
-    if (!Array.isArray(pessoas)) {
-        throw new Error("O arquivo de cadastros não contém uma lista.");
-    }
-
-    return pessoas;
+    return lerArquivoJson(databaseFile, "cadastros");
 }
 
 // Salvar os cadastros
 function salvarPessoas(pessoas) {
-    const temporario = databaseFile + ".tmp";
-
-    fs.writeFileSync(
-        temporario,
-        JSON.stringify(pessoas, null, 2),
-        "utf8"
-    );
-
-    fs.renameSync(temporario, databaseFile);
+    escreverArquivoJson(databaseFile, pessoas);
 }
+
+// Ler usuários
+function lerUsuarios() {
+    return lerArquivoJson(usuariosFile, "usuários");
+}
+
+// Servir arquivos estáticos do sistema
+app.use(express.static(__dirname));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Consultar usuários
+app.get("/api/usuarios", (req, res) => {
+    try {
+        const usuarios = lerUsuarios();
+        res.status(200).json(usuarios);
+    } catch (error) {
+        console.error("Erro ao consultar usuários:", error);
+        res.status(500).json({
+            erro: "Não foi possível consultar os usuários."
+        });
+    }
+});
+
+app.post("/api/login", (req, res) => {
+    try {
+        const { usuario = "", senha = "" } = req.body || {};
+        const usuarios = lerUsuarios();
+        const usuarioEncontrado = usuarios.find(
+            item =>
+                String(item.usuario).trim().toLowerCase() ===
+                    String(usuario).trim().toLowerCase() &&
+                String(item.senha) === String(senha)
+        );
+
+        if (!usuarioEncontrado) {
+            return res.status(401).json({
+                erro: "Usuário ou senha inválidos."
+            });
+        }
+
+        return res.status(200).json({
+            sucesso: true,
+            nome: usuarioEncontrado.nome || usuarioEncontrado.usuario,
+            usuario: usuarioEncontrado.usuario
+        });
+    } catch (error) {
+        console.error("Erro ao autenticar usuário:", error);
+        return res.status(500).json({
+            erro: "Não foi possível autenticar o usuário."
+        });
+    }
+});
 
 // Consultar pessoas
 app.get("/api/pessoas", (req, res) => {

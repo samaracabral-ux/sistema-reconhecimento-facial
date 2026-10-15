@@ -1,1 +1,36 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Resultado da identificação</title><link rel="stylesheet" href="css/style.css"></head><body><main class="tela-sistema"><section class="resultado-caixa"><div id="resultadoIcone" class="sucesso">✓</div><h1 id="resultadoTitulo">Identificação</h1><p id="resultadoDescricao" class="descricao">Resultado da última tentativa.</p><div id="perfil" class="perfil" hidden><div class="foto"><img id="fotoPessoa" alt="Foto cadastrada"></div><div class="dados"><p><strong>Nome:</strong> <span id="nomePessoa"></span></p><p><strong>ID:</strong> <span id="idPessoa"></span></p><p><strong>Setor:</strong> <span id="setorPessoa"></span></p><p><strong>Cargo:</strong> <span id="cargoPessoa"></span></p><p><strong>Status:</strong> <span class="ativo">Cadastro localizado</span></p></div></div><button onclick="location.href='camera.html'">Nova identificação</button></section></main><script src="js/resultado.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resultado da identificação</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="panel result-panel">
+      <div id="resultadoIcone" class="status-success">✓</div>
+      <h1 id="resultadoTitulo">Identificação</h1>
+      <p id="resultadoDescricao" class="section-description">Resultado da última tentativa.</p>
+
+      <div id="perfil" class="profile-card" hidden>
+        <div class="profile-photo">
+          <img id="fotoPessoa" alt="Foto cadastrada" />
+        </div>
+
+        <div class="profile-data">
+          <p><strong>Nome:</strong> <span id="nomePessoa"></span></p>
+          <p><strong>ID:</strong> <span id="idPessoa"></span></p>
+          <p><strong>Setor:</strong> <span id="setorPessoa"></span></p>
+          <p><strong>Cargo:</strong> <span id="cargoPessoa"></span></p>
+          <p><strong>Status:</strong> <span class="status-ok">Cadastro localizado</span></p>
+        </div>
+      </div>
+
+      <button class="primary-btn" onclick="location.href='camera.html'">Nova identificação</button>
+    </section>
+  </main>
+
+  <script src="js/resultado.js"></script>
+</body>
+</html>

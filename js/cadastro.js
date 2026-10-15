@@ -148,7 +148,7 @@
         try {
             showStatus("Salvando cadastro...");
 
-          const response = await fetch("http://localhost:3000/api/pessoas", {
+          const response = await fetch("api/pessoas.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

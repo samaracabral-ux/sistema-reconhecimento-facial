@@ -1,17 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cadastro | FaceID</title><link rel="stylesheet" href="css/style.css"></head>
-<body><main class="tela-sistema"><section class="camera-caixa cadastro-caixa">
-  <h1>Cadastro de pessoa</h1><p class="descricao">Cadastre somente pessoas que autorizaram o uso de seus dados faciais.</p>
-  <div class="camera-area video-area"><video id="videoCadastro" autoplay muted playsinline></video><div id="cadPlaceholder" class="camera-placeholder"><div class="camera-icone">📷</div><p>Câmera desligada</p></div></div>
-  <div class="acoes"><button id="iniciarCadastro" class="botao">Abrir câmera</button><button id="capturar" class="botao secundario" disabled>Capturar rosto</button></div>
-  <form id="cadastroForm" class="form-cadastro">
-    <div class="campo"><label for="nome">Nome completo</label><input id="nome" required maxlength="100"></div>
-    <div class="campo"><label for="identificador">ID</label><input id="identificador" required maxlength="40" placeholder="Ex.: FUNC-003"></div>
-    <div class="campo"><label for="setor">Setor</label><input id="setor" required maxlength="80"></div>
-    <div class="campo"><label for="cargo">Cargo</label><input id="cargo" required maxlength="80"></div>
-    <p id="cadStatus" class="status-text" aria-live="polite">Primeiro capture o rosto.</p>
-    <button type="submit" class="botao-entrar">Salvar cadastro</button>
-  </form>
-  <p><a href="camera.html">Voltar ao reconhecimento</a></p>
-</section></main>
-<script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script><script defer src="js/cadastro.js"></script></body></html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro | FaceID</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="panel form-panel">
+      <div class="panel-header compact">
+        <div class="brand-badge">◉</div>
+        <div>
+          <p class="eyebrow">Cadastro</p>
+          <h1>Nova pessoa</h1>
+        </div>
+      </div>
+
+      <p class="section-description">
+        Cadastre somente pessoas que autorizaram o uso do registro facial.
+      </p>
+
+      <div class="camera-stage video-area">
+        <video id="videoCadastro" autoplay muted playsinline></video>
+        <div id="cadPlaceholder" class="camera-placeholder">
+          <div class="camera-icone">📷</div>
+          <p>Câmera desligada</p>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button id="iniciarCadastro" class="primary-btn">Abrir câmera</button>
+        <button id="capturar" class="secondary-btn" disabled>Capturar rosto</button>
+      </div>
+
+      <form id="cadastroForm" class="form-cadastro">
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <input id="nome" required maxlength="100" />
+        </div>
+
+        <div class="field">
+          <label for="identificador">ID</label>
+          <input id="identificador" required maxlength="40" placeholder="Ex.: FUNC-003" />
+        </div>
+
+        <div class="field">
+          <label for="setor">Setor</label>
+          <input id="setor" required maxlength="80" />
+        </div>
+
+        <div class="field">
+          <label for="cargo">Cargo</label>
+          <input id="cargo" required maxlength="80" />
+        </div>
+
+        <p id="cadStatus" class="status-text" aria-live="polite">Primeiro capture o rosto.</p>
+        <button type="submit" class="primary-btn full-width">Salvar cadastro</button>
+      </form>
+
+      <div class="inline-links center">
+        <a href="camera.html">Voltar ao reconhecimento</a>
+      </div>
+    </section>
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script defer src="js/cadastro.js"></script>
+</body>
+</html>

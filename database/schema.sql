@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS faceid CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE faceid;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS pessoas (
+    id CHAR(36) NOT NULL PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    identificador VARCHAR(80) NOT NULL UNIQUE,
+    setor VARCHAR(120) DEFAULT NULL,
+    cargo VARCHAR(120) DEFAULT NULL,
+    foto LONGTEXT NOT NULL,
+    descritor JSON NOT NULL,
+    criadoEm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO usuarios (usuario, senha, nome)
+VALUES ('admin', '1234', 'Administrador')
+ON DUPLICATE KEY UPDATE senha = VALUES(senha), nome = VALUES(nome);

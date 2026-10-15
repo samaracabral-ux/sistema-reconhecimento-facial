@@ -50,7 +50,7 @@
       const detection = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks().withFaceDescriptor();
       if (!detection) { status.textContent = "Rosto não detectado. Ajuste a posição e tente novamente."; return; }
-      const response = await fetch("http://localhost:3000/api/pessoas");
+      const response = await fetch("api/pessoas.php");
       const people = await response.json();
       if (!people.length) { status.textContent = "Nenhuma pessoa cadastrada. Faça um cadastro primeiro."; return; }
       const labeled = people.map(p => new faceapi.LabeledFaceDescriptors(p.identificador, [new Float32Array(p.descritor)]));

@@ -1,12 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Reconhecimento Facial</title><link rel="stylesheet" href="css/style.css"></head>
-<body><main class="tela-sistema"><section class="camera-caixa">
-  <div class="logo-icone pequeno">◉</div><h1>Reconhecimento Facial</h1>
-  <p class="descricao">Posicione seu rosto dentro da área indicada para iniciar a identificação.</p>
-  <div class="camera-area video-area"><video id="video" autoplay muted playsinline></video><div class="moldura-rosto"></div><div id="cameraPlaceholder" class="camera-placeholder"><div class="camera-icone">📷</div><p>Câmera pronta</p></div></div>
-  <p id="cameraStatus" class="status-text" aria-live="polite">A câmera ainda não foi iniciada.</p>
-  <div class="acoes"><button id="abrirCamera" class="botao">Abrir câmera</button><button id="identificar" class="botao secundario" disabled>Identificar rosto</button><button id="pararCamera" class="botao secundario" disabled>Desligar câmera</button></div>
-  <p class="aviso-camera">🔒 A câmera é acessada pelo navegador. Use somente com autorização da pessoa cadastrada.</p>
-  <p><a href="cadastro.html">Cadastrar pessoa</a> · <a href="index.html">Sair</a></p>
-</section></main>
-<script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script><script defer src="js/camera.js"></script></body></html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reconhecimento Facial</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="panel camera-panel">
+      <div class="panel-header compact">
+        <div class="brand-badge">◉</div>
+        <div>
+          <p class="eyebrow">Reconhecimento</p>
+          <h1>Identificação facial</h1>
+        </div>
+      </div>
+
+      <p class="section-description">
+        Posicione o rosto dentro da área indicada para iniciar a validação.
+      </p>
+
+      <div class="camera-stage video-area">
+        <video id="video" autoplay muted playsinline></video>
+        <div class="scan-ring"></div>
+        <div id="cameraPlaceholder" class="camera-placeholder">
+          <div class="camera-icone">📷</div>
+          <p>Câmera pronta</p>
+        </div>
+      </div>
+
+      <p id="cameraStatus" class="status-text" aria-live="polite">
+        A câmera ainda não foi iniciada.
+      </p>
+
+      <div class="button-row">
+        <button id="abrirCamera" class="primary-btn">Abrir câmera</button>
+        <button id="identificar" class="secondary-btn" disabled>Identificar rosto</button>
+        <button id="pararCamera" class="secondary-btn" disabled>Desligar câmera</button>
+      </div>
+
+      <p class="security-note">
+        🔒 A captura é feita somente com autorização da pessoa cadastrada.
+      </p>
+
+      <div class="inline-links">
+        <a href="cadastro.html">Cadastrar pessoa</a>
+        <a href="index.html">Sair</a>
+      </div>
+    </section>
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script defer src="js/camera.js"></script>
+</body>
+</html>

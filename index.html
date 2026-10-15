@@ -1,29 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FaceID | Sistema de Identificação</title><link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FaceID | Sistema de Identificação</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<header class="topo"><div><h1>FaceID</h1><span>Sistema de Identificação</span></div><div class="status-sistema"><span class="ponto"></span>Sistema operacional</div></header>
-<main class="principal">
-  <section class="apresentacao">
-    <span class="tag">IDENTIFICAÇÃO INTERNA</span>
-    <h2>Acesso rápido.<br><strong>Identificação segura.</strong></h2>
-    <p>Utilize o sistema para realizar a identificação dos colaboradores por reconhecimento facial.</p>
-    <div class="card-seguranca"><div class="icone-seguranca">✓</div><div><strong>Ambiente protegido</strong><p>Sistema local para demonstração e identificação autorizada.</p></div></div>
-    <div class="informacoes"><div><strong>01</strong><span>Entrar no sistema</span></div><div><strong>02</strong><span>Realizar identificação</span></div><div><strong>03</strong><span>Confirmar acesso</span></div></div>
-  </section>
-  <section class="login-area"><div class="login-card">
-    <div class="login-topo"><div class="icone-login">◉</div><div><h3>Acesso ao sistema</h3><p>Entre para iniciar uma identificação</p></div></div>
-    <form id="loginForm">
-      <div class="campo"><label for="usuario">Usuário</label><div class="input-container"><input type="text" id="usuario" placeholder="Digite seu usuário" autocomplete="username" required></div></div>
-      <div class="campo"><label for="senha">Senha</label><div class="input-container"><input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" required></div></div>
-      <div id="mensagem" class="mensagem" aria-live="polite"></div>
-      <button type="submit" class="botao-entrar"><span>Entrar no sistema</span><span class="seta">→</span></button>
-    </form>
-    <div class="login-footer"><p>Dados de demonstração: admin / 1234. Altere antes de qualquer uso real.</p></div>
-  </div><p class="rodape"></p></section>
-</main>
-<script src="js/script.js"></script>
-</body></html>
+  <header class="topbar">
+    <div class="brand-block">
+      <h1>FaceID</h1>
+      <span>Sistema de identificação</span>
+    </div>
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      Sistema operacional
+    </div>
+  </header>
+
+  <main class="login-layout">
+    <section class="hero-panel">
+      <span class="eyebrow">Identificação interna</span>
+      <h2>Acesso rápido.<br /><strong>Reconhecimento seguro.</strong></h2>
+      <p>
+        O sistema valida colaboradores por reconhecimento facial para controlar entrada,
+        acesso e segurança interna com rapidez e precisão.
+      </p>
+
+      <div class="info-card">
+        <div class="icon-box success">✓</div>
+        <div>
+          <strong>Ambiente protegido</strong>
+          <p>Estrutura local para uso interno e autorização de acesso.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div>
+          <strong>01</strong>
+          <span>Entrar</span>
+        </div>
+        <div>
+          <strong>02</strong>
+          <span>Validar rosto</span>
+        </div>
+        <div>
+          <strong>03</strong>
+          <span>Confirmar acesso</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel login-panel">
+      <div class="panel-header">
+        <div class="brand-badge">◉</div>
+        <div>
+          <h3>Acesso ao sistema</h3>
+          <p>Entre para iniciar a identificação</p>
+        </div>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <div class="field">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="usuario" placeholder="Digite seu usuário" autocomplete="username" required />
+        </div>
+
+        <div class="field">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" required />
+        </div>
+
+        <div id="mensagem" class="message" aria-live="polite"></div>
+
+        <button type="submit" class="primary-btn">
+          <span>Entrar no sistema</span>
+          <span class="arrow">→</span>
+        </button>
+      </form>
+
+      <div class="footnote">
+        <p>Dados de demonstração: admin / 1234</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
